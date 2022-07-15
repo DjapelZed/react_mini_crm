@@ -1,0 +1,15 @@
+@import "../../sassStyles/variables";
+
+.search-panel{
+    margin-top: 10px;
+    padding: 20px 15px 10px 15px;
+    background-color: $main-color;
+
+    & .search-input{
+        color: $main-text-color;
+        background-color: $main-color;
+        &::placeholder{
+            color: $secondary-text-color;
+        }
+    }
+}
