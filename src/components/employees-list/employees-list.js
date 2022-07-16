@@ -1,12 +1,11 @@
 import EmployeesListItem from "../employees-list-item/employees-list-item";
 import "./employees-list.scss";
 
-function EmployeesList(){
+function EmployeesList({data}){
+    const employeesList = data.map(item => <EmployeesListItem {...item}/>)
     return (
         <ul className="app-list list-group">
-            <EmployeesListItem/>
-            <EmployeesListItem/>
-            <EmployeesListItem/>
+            {employeesList}
         </ul>
     )
 }
