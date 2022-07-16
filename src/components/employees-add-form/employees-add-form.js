@@ -7,7 +7,10 @@ function AddForm(){
     
     const onValueChange = ({target}) => {
         if (target.name === "name") setName(target.value);
-        if (target.name === "salary") setSalary(target.value)
+        if (target.name === "salary"){
+            const salary = parseInt(target.value);
+            if (salary >= 0) setSalary(salary);
+        } 
     }
 
     return (
