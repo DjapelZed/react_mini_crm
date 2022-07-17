@@ -1,10 +1,10 @@
 import EmployeesListItem from "../employees-list-item/employees-list-item";
 import "./employees-list.scss";
 
-function EmployeesList({data}){
+function EmployeesList({data, onDelete}){
     const employeesList = data.map(item => {
-        const {id, ...itemProps} = item;    
-        return <EmployeesListItem key={id} {...itemProps}/>
+        const {id, ...itemProps} = item;
+        return <EmployeesListItem key={id} onDelete={() => onDelete(id)} {...itemProps}/>
     })
     return (
         <ul className="app-list list-group">

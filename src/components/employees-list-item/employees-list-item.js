@@ -1,11 +1,11 @@
 import {useState} from "react";
 import "./employees-list-item.scss";
 
-function EmployeesListItem({name, salary, promotionP}){
-    const [promotion, setPromotion] = useState(promotionP);
+function EmployeesListItem({name, salary, promotion, onDelete}){
+    const [promo, setPromotion] = useState(promotion);
     const [like, setLike] = useState(false);
 
-    const className = `${promotion ? "promotion" : ""} 
+    const className = `${promo ? "promotion" : ""} 
                         ${like ? "like" : ""} 
                         list-group-item d-flex justify-content-between`
     return (
@@ -13,10 +13,10 @@ function EmployeesListItem({name, salary, promotionP}){
             <span onClick={() => setLike(!like)} className="list-group-item-label">{name}</span>
             <input type="text" className="list-group-item-input" defaultValue={salary+"$"}/>
             <div className="d-flex justify-content-center align-items-center">
-                <button onClick={() => setPromotion(!promotion)} className="btn-cookie btn-sm">
+                <button onClick={() => setPromotion(!promo)} className="btn-cookie btn-sm">
                     <i className="fas fa-cookie"></i>
                 </button>
-                <button className="btn-trash btn-sm">
+                <button onClick={onDelete} className="btn-trash btn-sm">
                     <i className="fas fa-trash"></i>
                 </button>
                 <i className="fas fa-star"></i>

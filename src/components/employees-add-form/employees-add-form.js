@@ -1,7 +1,7 @@
 import {useState} from "react";
 import "./add-form.scss";
 
-function AddForm(){
+function AddForm({addEmployee}){
     const [name, setName] = useState("");
     const [salary, setSalary] = useState(0);
     
@@ -13,10 +13,21 @@ function AddForm(){
         } 
     }
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        const {target} = e;
+        const employee = {
+            name: target.name.value,
+            salary: target.salary.value,
+            promotion: false,
+        }
+        addEmployee(employee);
+    }
+    
     return (
         <div className="app-add-form">
         <h3>New employee</h3>
-        <form className="add-form d-flex">
+        <form onSubmit={e => handleSubmit(e)} className="add-form d-flex">
             <input type="text"
                 className="form-control new-post-label"
                 placeholder="Name"
