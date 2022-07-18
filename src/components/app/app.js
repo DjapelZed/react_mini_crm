@@ -15,7 +15,7 @@ const db = [
 function App(){
     const [data, setData] = useState(db);
     const [searchPhrase, setSearchPhrase] = useState("");
-    const [filterType, setFilterType] = useState("salary");
+    const [filterType, setFilterType] = useState("all");
 
     const onDelete = id => {
         const updatedData = data.filter(item =>  item.id !== id);
