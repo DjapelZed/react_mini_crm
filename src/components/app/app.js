@@ -14,7 +14,8 @@ const db = [
 
 function App(){
     const [data, setData] = useState(db);
-    
+    const [searchPhrase, setSearchPhrase] = useState("");
+
     const onDelete = id => {
         const updatedData = data.filter(item =>  item.id !== id);
         setData(updatedData);
@@ -36,20 +37,26 @@ function App(){
         });
         setData(updatedData);
     };
-
+    
     const getBonusSalariesCount = () => {
         return data.filter(item => item.increase).length;
     }
+    
+    const getSearchItems = (items, searchPhrase) => {
+        return items.filter(item => item.name.indexOf(searchPhrase) > -1);
+    }
 
+    const visibleData = getSearchItems(data, searchPhrase);
+    
     return (
         <div className="app">
             <AppInfo employeesCount={data.length} bonusSalaryCount={getBonusSalariesCount()}/>
-            <SearchPanel/>
+            <SearchPanel setSearchPhrase={setSearchPhrase}/>
             <AppFilter/>
             <EmployeesList 
                 onToggleProp={onToggleProp}
                 onDelete={id => onDelete(id)} 
-                data={data}
+                data={visibleData}
             />
             <AddForm addEmployee={employee => addEmployee(employee)}/>
         </div>
