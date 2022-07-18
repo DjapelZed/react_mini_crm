@@ -9,7 +9,7 @@ import "./app.scss";
 const db = [
     {name: "Foo Barovich", salary: 500, increase: true, promotion: true, id: 1},
     {name: "Boo Rarov", salary: 900, increase: true, promotion: false, id: 2},
-    {name: "Doo Taroven", salary: 900,  increase: false, promotion: false, id: 3}
+    {name: "Doo Taroven", salary: 1200,  increase: false, promotion: false, id: 3}
 ]
 
 function App(){
