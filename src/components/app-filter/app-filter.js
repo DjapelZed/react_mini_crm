@@ -1,12 +1,26 @@
 import "./app-filter.scss"
 
-function AppFilter(){
+function AppFilter({setFilter, currentFilter}){
+    const handleClick = e => {
+        setFilter(e);
+    }
+    
+    const buttons = [
+        {name: "All", filter: "all"},
+        {name: "Promotion", filter: "promo"},
+        {name: "Salary >1000$", filter: "salary"},
+    ].map(({name, filter}) => (
+        <button onClick={handleClick} 
+                data-filter={filter} 
+                className={`btn ${currentFilter === filter ? "btn-light" : "btn-outline-light"}`}
+                key={name}
+                >{name}</button>
+    ));
+
     return (
         <div className="app-filter">
             <div className="btn-group">
-                <button className="btn btn-light">All</button>
-                <button className="btn btn-outline-light">Promotion</button>
-                <button className="btn btn-outline-light">Salary >1000$</button>
+                {buttons}
             </div>
         </div>
     )

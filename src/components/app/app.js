@@ -15,6 +15,7 @@ const db = [
 function App(){
     const [data, setData] = useState(db);
     const [searchPhrase, setSearchPhrase] = useState("");
+    const [filterType, setFilterType] = useState("salary");
 
     const onDelete = id => {
         const updatedData = data.filter(item =>  item.id !== id);
@@ -46,13 +47,23 @@ function App(){
         return items.filter(item => item.name.indexOf(searchPhrase) > -1);
     }
 
-    const visibleData = getSearchItems(data, searchPhrase);
-    
+    const setFilter = e => {
+        setFilterType(e.target.getAttribute("data-filter"));
+    }
+
+    const getFilterItems = (items, filterType) => {
+        if (filterType === "all") return items;
+        if (filterType === "promo") return items.filter(item => item.promotion);
+        if (filterType === "salary") return items.filter(item => item.salary >= 1000);
+        return items;
+    }
+    const visibleData = getFilterItems(getSearchItems(data, searchPhrase), filterType);
+
     return (
         <div className="app">
             <AppInfo employeesCount={data.length} bonusSalaryCount={getBonusSalariesCount()}/>
             <SearchPanel setSearchPhrase={setSearchPhrase}/>
-            <AppFilter/>
+            <AppFilter setFilter={setFilter} currentFilter={filterType}/>
             <EmployeesList 
                 onToggleProp={onToggleProp}
                 onDelete={id => onDelete(id)} 
