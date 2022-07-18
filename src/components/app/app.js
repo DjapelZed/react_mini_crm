@@ -28,34 +28,17 @@ function App(){
         setData(updatedData);
     };
 
-    const onToggleIncrease = id => {
-        const updatedData = data.map(item => {
-            if (item.id === id){
-                item.increase = !item.increase
-            }
-            return item;
-        });
-        setData(updatedData);
-    };
-
-    const onTogglePromotion = id => {
-        const updatedData = data.map(item => {
-            if (item.id === id){
-                item.promotion = !item.promotion
-            }
-            return item;
-        });
-        setData(updatedData);
-    };
+    const getBonusSalariesCount = () => {
+        return data.filter(item => item.increase).length;
+    }
 
     return (
         <div className="app">
-            <AppInfo/>
+            <AppInfo employeesCount={data.length} bonusSalaryCount={getBonusSalariesCount()}/>
             <SearchPanel/>
             <AppFilter/>
             <EmployeesList 
-                onToggleIncrease={onToggleIncrease}
-                onTogglePromotion={onTogglePromotion}
+                
                 onDelete={id => onDelete(id)} 
                 data={data}
 
