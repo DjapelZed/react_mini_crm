@@ -16,33 +16,35 @@ function AddForm({addEmployee}){
     const handleSubmit = e => {
         e.preventDefault();
         const {target} = e;
-        const employee = {
-            name: target.name.value,
-            salary: target.salary.value,
-            promotion: false,
+        if (target.name.value && target.salary.value){
+            const employee = {
+                name: target.name.value,
+                salary: target.salary.value,
+                promotion: false,
+            }
+            addEmployee(employee);
         }
-        addEmployee(employee);
     }
-    
+
     return (
         <div className="app-add-form">
         <h3>New employee</h3>
         <form onSubmit={e => handleSubmit(e)} className="add-form d-flex">
-            <input type="text"
+            <input required type="text"
                 className="form-control new-post-label"
                 placeholder="Name"
                 onChange={e => onValueChange(e)}
                 name="name" 
                 value={name || ""} // useState with empty string causes warning (change uncontrolled to controlled input) 
                 />
-            <input type="number"
+            <input required type="number"
                 className="form-control new-post-label"
                 placeholder="Salary"
                 onChange={e => onValueChange(e)}
                 name="salary" 
                 value={salary || ""} // don't display default value "0"
                 />
-            <button type="submit"
+            <button disabled={!(name && salary)} type="submit"
                     className="btn btn-outline-light">Add</button>
         </form>
     </div>
