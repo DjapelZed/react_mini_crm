@@ -28,6 +28,16 @@ function App(){
         setData(updatedData);
     };
 
+    const onToggleProp = (id, prop) => {
+        const updatedData = data.map(item => {
+            if (item.id === id){
+                item[prop] = !item[prop];
+            }
+            return item;
+        });
+        setData(updatedData);
+    };
+
     const getBonusSalariesCount = () => {
         return data.filter(item => item.increase).length;
     }
@@ -38,7 +48,7 @@ function App(){
             <SearchPanel/>
             <AppFilter/>
             <EmployeesList 
-                
+                onToggleProp={onToggleProp}
                 onDelete={id => onDelete(id)} 
                 data={data}
 
