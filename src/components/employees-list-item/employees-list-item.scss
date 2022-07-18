@@ -6,21 +6,21 @@
         border-bottom: none;
     }
     
-    & span {
+    span {
         line-height: 35px;
         font-size: 20px;
         cursor: pointer;
         min-width: 550px;
     }
 
-    & input {
+    input {
         line-height: 35px;
         font-size: 20px;
         text-align: center;
         border: 0;
     }
 
-    & button {
+    button {
         width: 35px;
         height: 35px;
         margin: 3px;
@@ -29,15 +29,15 @@
         cursor: pointer;
     }
 
-    & .btn-cookie {
+    .btn-cookie {
         color: #e09f3e;
     }
 
-    & .btn-trash {
+    .btn-trash {
         color: #e5383b;
     }
 
-    & .fa-star {
+    .fa-star {
         width: 35px;
         height: 35px;
         text-align: center;
