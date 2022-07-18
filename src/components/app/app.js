@@ -24,7 +24,6 @@ function App(){
         const id = data[data.length-1].id + 1;
         const updatedData = data.slice();
         updatedData.push({id: id, ...employee})
-        console.log(updatedData);
         setData(updatedData);
     };
 
@@ -51,7 +50,6 @@ function App(){
                 onToggleProp={onToggleProp}
                 onDelete={id => onDelete(id)} 
                 data={data}
-
             />
             <AddForm addEmployee={employee => addEmployee(employee)}/>
         </div>

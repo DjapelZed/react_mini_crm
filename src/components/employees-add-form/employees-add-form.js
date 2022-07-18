@@ -15,11 +15,11 @@ function AddForm({addEmployee}){
 
     const handleSubmit = e => {
         e.preventDefault();
-        const {target} = e;
-        if (target.name.value && target.salary.value){
+        const {target: {name, salary}} = e;
+        if (name.value && salary.value){
             const employee = {
-                name: target.name.value,
-                salary: target.salary.value,
+                name: name.value,
+                salary: salary.value,
                 promotion: false,
             }
             addEmployee(employee);
