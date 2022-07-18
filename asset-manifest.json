@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_mini_crm/static/css/main.cade1d9f.css",
+    "main.js": "/react_mini_crm/static/js/main.1d922fec.js",
+    "index.html": "/react_mini_crm/index.html",
+    "main.cade1d9f.css.map": "/react_mini_crm/static/css/main.cade1d9f.css.map",
+    "main.1d922fec.js.map": "/react_mini_crm/static/js/main.1d922fec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cade1d9f.css",
+    "static/js/main.1d922fec.js"
+  ]
+}
