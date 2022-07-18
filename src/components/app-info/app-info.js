@@ -3,7 +3,7 @@ import "./app-info.scss";
 function AppInfo({employeesCount, bonusSalaryCount}){
     return (
         <div className="app-info">
-            <h1 className="text-center">Employees list of OOO "Roga i Kopyta"</h1>
+            <h1 className="text-center">Employees List</h1>
             <hr />
             <div className="info">
                 <div className="info__count">
